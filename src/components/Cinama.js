@@ -21,7 +21,8 @@ export async function Cinama() {
 
   try {
     const res = await fetch('https://kasrabahonar.github.io/jsonserver/db.json')
-    const movies = await res.movies.json()
+    const data = await res.json()
+    const movies = data.movies
 
     movies.forEach((movie) => {
       const card = document.createElement('div')
@@ -33,7 +34,7 @@ export async function Cinama() {
         .join('')
 
       card.innerHTML = `
-    <img src="${movie.image}" alt="${movie.title}" />
+    <img src="/filimo/images/ticket.webp" alt="" class="ticket-icon" />
     <div>
       <article>
         <h4>${movie.title}</h4>

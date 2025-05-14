@@ -53,9 +53,9 @@ export async function Banner() {
   let currentIndex = 0
 
   fetch('https://kasrabahonar.github.io/jsonserver/db.json')
-    .then((res) => res.banner.json())
+    .then((res) => res.json())
     .then((data) => {
-      banners = data
+      banners = data.banner
       if (banners.length > 0) {
         setBackgroundImage(banners[currentIndex].image)
         setInterval(() => {

@@ -5,7 +5,7 @@ export async function FreeContents() {
   const freeContentsSection = document.createElement('section')
   freeContentsSection.classList.add('free-contents-section')
 
-  // ساخت عنوان
+  // عنوان
   const heading = document.createElement('h2')
   heading.textContent = 'محتواهای رایگان'
   heading.style.fontSize = '1.2rem'
@@ -14,7 +14,7 @@ export async function FreeContents() {
   heading.style.textAlign = 'right'
   freeContentsSection.appendChild(heading)
 
-  // ساخت container اسلایدر
+  // Container اصلی اسلایدر
   const container = document.createElement('div')
   container.classList.add('swiper')
   container.setAttribute('dir', 'rtl')
@@ -26,7 +26,8 @@ export async function FreeContents() {
 
   try {
     const response = await fetch('https://kasrabahonar.github.io/jsonserver/db.json')
-    const movies = await response.movies.json()
+    const data = await response.json()
+    const movies = data.movies
 
     movies.forEach((movie) => {
       const slide = document.createElement('div')
@@ -65,27 +66,22 @@ export async function FreeContents() {
       },
       breakpoints: {
         0: {
-          // موبایل (حداکثر 480px)
           slidesPerView: 2,
           spaceBetween: 16,
         },
         576: {
-          // تبلت کوچک (حداکثر 576px)
           slidesPerView: 3,
           spaceBetween: 16,
         },
         768: {
-          // تبلت بزرگ (حداکثر 768px)
           slidesPerView: 3,
           spaceBetween: 24,
         },
         1024: {
-          // لپ‌تاپ (حداکثر 1024px)
           slidesPerView: 5,
           spaceBetween: 32,
         },
         1200: {
-          // دسکتاپ (بالاتر از 1200px)
           slidesPerView: 'auto',
           spaceBetween: 56,
         },

@@ -39,7 +39,7 @@ export async function PopularFilmo() {
 
   try {
     const res = await fetch('https://kasrabahonar.github.io/jsonserver/db.json')
-    const data = await res.data.json()
+    const data = await res.json()
     allData = data
 
     renderPosters('series')

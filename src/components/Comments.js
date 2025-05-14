@@ -40,7 +40,8 @@ export async function Comments() {
 
   try {
     const res = await fetch('https://kasrabahonar.github.io/jsonserver/db.json')
-    const comments = await res.comments.json()
+    const data = await res.json()
+    const comments = data.comments
 
     comments.forEach((item) => {
       const slide = document.createElement('div')
@@ -49,10 +50,10 @@ export async function Comments() {
         <div class="comment-card">
           <div class="comment-card-top">
             <div class="user-info">
-              <img src="/1.webp" alt="User Icon" class="user-avatar" />
+              <img src="/filimo/images/1.webp" alt="User Icon" class="user-avatar" />
               <span>${item.name}</span>
             </div>
-            <img src="/virgol.webp" alt="Icon" class="virgol-icon" />
+            <img src="/filimo/images/virgol.webp" alt="Icon" class="virgol-icon" />
           </div>
           <div class="comment-card-bottom">
             <p>${item.comment}</p>
