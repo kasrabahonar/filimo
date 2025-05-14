@@ -1,0 +1,9 @@
+# Ignore node modules
+node_modules/
+
+# Ignore cache
+.cache/
+
+# Optional: ignore build/dist folders if you have them
+dist/
+build/
